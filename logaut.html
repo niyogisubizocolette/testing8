@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Welcome Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #10c665, #9a06ef);
+      color: #333;
+      line-height: 1.8;
+      text-align: center;
+      padding-top: 100px;
+    }
+    
+
+    h1 {
+      color: #333;
+    }
+
+    button {
+      background-color: red;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: darkred;
+    }
+
+    a {
+      color: red;
+      text-decoration: underline;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body style="background-color: rgba(245, 73, 11, 0.927);">
+
+  <h1>Are you able to logaut!, User!</h1>
+  <p>You are gona logout.</p>
+
+  
+  <button onclick="logout()">Logout</button>
+
+
+  <script>
+    function logout() {
+      
+
+      
+      if (confirm("Are you sure you want to logout?")) {
+        
+        window.location.href = "login1.html";
+      }
+    }
+  </script>
+
+</body>
+</html>

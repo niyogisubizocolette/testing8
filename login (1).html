@@ -1,0 +1,126 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <title>Login with Puzzle</title>
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url(images.jpg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-card {
+      background: #05e66e;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      width: 350px;
+      text-align: center;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ee0101;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .login-card button {
+      width: 100%;
+      padding: 12px;
+      background-color: #5a04ed;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .captcha-question {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-card">
+    <h2>Login Form</h2>
+    <form id="loginForm">
+      <div class="input-group">
+        <label>Username</label>
+        <input type="text" id="username" required />
+      </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" id="password" required />
+      </div>
+
+      <div class="input-group">
+        <label class="captcha-question" id="captcha-question">Loading question...</label>
+        <input type="number" id="captcha-answer" required placeholder="Enter answer" />
+      </div>
+      <a href="collection.html">
+        <button type="button">Go to research</button>
+      </a>
+      <div id="error" class="error-message">Check your credentials or captcha!</div>
+    </form>
+  </div>
+
+  <script>
+    const captchaQ = document.getElementById('captcha-question');
+    const loginForm = document.getElementById('loginForm');
+    const errorDiv = document.getElementById('error');
+
+    
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    const answer = num1 + num2;
+    captchaQ.textContent = `What is ${num1} + ${num2}?`;
+
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const userAnswer = parseInt(document.getElementById('captcha-answer').value);
+
+      if (username === 'admin' && password === '1234' && userAnswer === answer) {
+        window.location.href = 'home.html';
+      } else {
+        errorDiv.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>
